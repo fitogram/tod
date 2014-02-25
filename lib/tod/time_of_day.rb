@@ -113,7 +113,7 @@ module Tod
     #   TimeOfDay.parse "515p"                         # => 17:15:00
     #   TimeOfDay.parse "151253"                       # => 15:12:53
     #   TimeOfDay.parse "00:00:00"                     # => 00:00:00
-    #   TimeOfDay.parse "24:00:00"                     # => 24:00:00
+    #   TimeOfDay.parse "24:00:00"                     # => 00:00:00
     def self.parse(tod_string)
       tod_string = tod_string.strip
       tod_string = tod_string.downcase
