@@ -42,7 +42,7 @@ module Tod
       @minute = Integer(m)
       @second = Integer(s)
 
-      raise ArgumentError, "hour must be between 0 and 23" unless (0..23).include?(@hour)
+      raise ArgumentError, "hour must be between 0 and 23" unless (0..24).include?(@hour)
       raise ArgumentError, "minute must be between 0 and 59" unless (0..59).include?(@minute)
       raise ArgumentError, "second must be between 0 and 59" unless (0..59).include?(@second)
 
