@@ -9,7 +9,7 @@ module Tod
 
     PARSE_24H_REGEX = /
       \A
-      ([01]?\d|2[0-3])
+      ([01]?\d|2[0-4])
       :?
       ([0-5]\d)?
       :?
@@ -112,6 +112,8 @@ module Tod
     #   TimeOfDay.parse "3:25:58"                      # => 03:25:58
     #   TimeOfDay.parse "515p"                         # => 17:15:00
     #   TimeOfDay.parse "151253"                       # => 15:12:53
+    #   TimeOfDay.parse "00:00:00"                     # => 00:00:00
+    #   TimeOfDay.parse "24:00:00"                     # => 24:00:00
     def self.parse(tod_string)
       tod_string = tod_string.strip
       tod_string = tod_string.downcase
