@@ -1,18 +1,32 @@
 require File.expand_path(File.join(File.dirname(__FILE__),'..','test_helper'))
-require 'active_support/time'
 
-class TimeOfDayWithActiveSupportTest < Test::Unit::TestCase
-  context "self.time_zone" do
-    context "when Time.zone is nil" do
-      should "be Time" do
-        assert_equal Time, TimeOfDay.time_zone
+describe "TimeOfDay with ActiveSupport" do
+  describe ".time_zone" do
+    before do
+      @orig_zone = Time.zone
+    end
+
+    after do
+      Time.zone = @orig_zone
+    end
+
+    describe "when Time.zone is nil" do
+      before do
+        Time.zone = nil
+      end
+
+      it "is Time" do
+        assert_equal Time, Tod::TimeOfDay.time_zone
       end
     end
 
-    context "when Time.zone is set" do
-      should "be Time.zone" do
+    describe "when Time.zone is set" do
+      before do
         Time.zone = "Central Time (US & Canada)"
-        assert_equal Time.zone, TimeOfDay.time_zone
+      end
+
+      it "is Time.zone" do
+        assert_equal Time.zone, Tod::TimeOfDay.time_zone
       end
     end
   end
